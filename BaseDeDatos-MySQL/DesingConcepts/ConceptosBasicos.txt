@@ -12,4 +12,11 @@ posible, porque al evaluar una expresion donde halla un valor NULL toda la expre
 evaluar como NULL.
 
 UQ (Unique): No puede existir mas de una PK en la tabla, pero si varios campos UQ, que ademas
-si admite NULL en al menos un regristro.
+si admite NULL en al menos un regristro
+
+En un sistema de gestion de Bases de Datos Relacional, las tablas tienen/deben de estar relacionadas. ¿Como se establece las relaciones entre las tablas? Rta. A traves de las Relaciones de Clave Externas o FK (Foreign Keys).
+
+¿Que es una FK, Clave Extranjera o Foranea?
+
+Es un campo de una tabla que hace referencia a un campo de otra tabla, que es PK en dicha tabla, el nombre de los campos no tiene que ser igual pero si el tipo de datos.
+
