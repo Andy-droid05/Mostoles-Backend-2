@@ -12,21 +12,19 @@ use world;
 
 -- Ejercicio # 2 del Miercoles 18 de Nov: Recuperar los paises y el idioma hablado en cada pais,
 -- siempre que sea una lengua oficial
-select country.name, countrylanguage.Language, countrylanguage.IsOfficial
-from country left join countrylanguage on country.Code = countrylanguage.CountryCode
-where IsOfficial = true
-group by country.name, countrylanguage.Language, countrylanguage.IsOfficial;
+select co.name, cl.Language, cl.IsOfficial
+from country co join countrylanguage cl on co.Code = cl.CountryCode and cl.IsOfficial = 'T';
+
 
 -- Ejercicio # 3 del Miercoles 18 de Nov: Recuperar la ciudad mas poblada
 -- y el nombre del pais donde se encuentra dicha ciudad
-select city.Population, country.name
-from country left join city on country.code = city.CountryCode
-order by population desc;
+select ci.Name `Ciudad`, co.Name `Pais`, ci.Population
+from city ci join country co on ci.CountryCode = co.code 
+order by ci.Population desc
+limit 1 ;
 
 -- Ejercicio # 4 del Miercoles 18 de Nov: Modificar la consulta del Ejercicio # 2 para que 
 -- solamente se muestren resultados para España y todos los idiomas, no solo los oficiales
-select country.name, countrylanguage.Language, countrylanguage.IsOfficial 
-from country left join countrylanguage on country.Code = countrylanguage.CountryCode
-where name = 'Spain'
-group by country.name, countrylanguage.Language, countrylanguage.IsOfficial;
+select co.name, cl.Language, cl.IsOfficial
+from country co join countrylanguage cl on co.Code = cl.CountryCode and cl.IsOfficial and co.name = 'Spain' ;
 
